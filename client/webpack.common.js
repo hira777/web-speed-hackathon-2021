@@ -5,22 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
 const SRC_PATH = path.resolve(__dirname, './src');
-const PUBLIC_PATH = path.resolve(__dirname, '../public');
-const UPLOAD_PATH = path.resolve(__dirname, '../upload');
 const DIST_PATH = path.resolve(__dirname, '../dist');
 
 /** @type {import('webpack').Configuration} */
 const config = {
-  devServer: {
-    historyApiFallback: true,
-    host: '0.0.0.0',
-    port: 8080,
-    proxy: {
-      '/api': 'http://localhost:3000',
-    },
-    static: [PUBLIC_PATH, UPLOAD_PATH],
-  },
-  devtool: 'inline-source-map',
   entry: {
     main: [
       'core-js',
@@ -31,7 +19,6 @@ const config = {
       path.resolve(SRC_PATH, './index.jsx'),
     ],
   },
-  mode: 'none',
   module: {
     rules: [
       {

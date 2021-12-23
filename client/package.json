@@ -4,10 +4,10 @@
   "version": "0.0.1",
   "license": "MPL-2.0",
   "scripts": {
-    "analyze": "cross-env NODE_ENV=development webpack --analyze",
+    "analyze": "cross-env NODE_ENV=production webpack --config webpack.prod.js --analyze",
     "prebuild": "rimraf ../dist",
-    "build": "cross-env NODE_ENV=development webpack",
-    "develop": "cross-env NODE_ENV=development webpack serve"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
+    "develop": "cross-env NODE_ENV=development webpack serve --config webpack.dev.js"
   },
   "dependencies": {
     "buffer": "6.0.3",
@@ -54,10 +54,12 @@
     "postcss-preset-env": "7.0.1",
     "rimraf": "3.0.2",
     "style-loader": "3.3.1",
+    "terser-webpack-plugin": "^5.3.0",
     "webpack": "5.64.2",
     "webpack-bundle-analyzer": "4.5.0",
     "webpack-cli": "4.9.1",
-    "webpack-dev-server": "4.5.0"
+    "webpack-dev-server": "4.5.0",
+    "webpack-merge": "^5.8.0"
   },
   "engines": {
     "node": "16.x.x"

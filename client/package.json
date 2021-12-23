@@ -12,7 +12,6 @@
   "dependencies": {
     "buffer": "6.0.3",
     "classnames": "2.3.1",
-    "core-js": "3.19.1",
     "fast-average-color": "7.0.1",
     "gifler": "github:themadcreator/gifler#v0.3.0",
     "jquery": "3.6.0",
@@ -26,14 +25,12 @@
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
     "react-router-dom": "6.0.2",
-    "regenerator-runtime": "0.13.9",
     "standardized-audio-context": "25.3.15",
     "tailwindcss": "2.2.19",
     "wicg-inert": "3.1.1"
   },
   "devDependencies": {
     "@babel/core": "7.16.0",
-    "@babel/preset-env": "7.16.4",
     "@babel/preset-react": "7.16.0",
     "@types/jquery": "3.5.9",
     "@types/lodash": "4.14.177",
@@ -66,9 +63,6 @@
   "typesync": {
     "ignoreDeps": [
       "dev"
-    ],
-    "ignorePackages": [
-      "core-js"
     ]
   }
 }

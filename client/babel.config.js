@@ -1,18 +1,14 @@
-module.exports = {
-  presets: [
-    [
-      '@babel/preset-env',
-      {
-        corejs: '3',
-        modules: 'commonjs',
-        useBuiltIns: false,
-      },
+module.exports = (api) => {
+  const isDevelopment = api.env('development');
+
+  return {
+    presets: [
+      [
+        '@babel/preset-react',
+        {
+          development: isDevelopment,
+        },
+      ],
     ],
-    [
-      '@babel/preset-react',
-      {
-        development: true,
-      },
-    ],
-  ],
+  };
 };

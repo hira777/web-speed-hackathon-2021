@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
+    "@ffmpeg/core": "^0.10.0",
+    "@ffmpeg/ffmpeg": "^0.10.1",
     "sharp": "^0.29.3"
   },
   "scripts": {
-    "convert:image": "node jpg2avif"
+    "convert:image": "node jpg2avif",
+    "convert:movie": "node --experimental-wasm-threads gif2webm"
   }
 }

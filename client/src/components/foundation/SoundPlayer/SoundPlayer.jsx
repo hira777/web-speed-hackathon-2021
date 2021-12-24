@@ -56,7 +56,7 @@ const SoundPlayer = ({ sound }) => {
           onClick={handleTogglePlaying}
           type="button"
         >
-          <FontAwesomeIcon iconType={isPlaying ? 'pause' : 'play'} styleType="solid" />
+          <FontAwesomeIcon iconType={isPlaying ? 'pause' : 'play'} />
         </button>
       </div>
       <div className="flex flex-col flex-grow flex-shrink pt-2 min-w-0 h-full">

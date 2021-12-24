@@ -32,6 +32,11 @@ const config = {
           { loader: 'postcss-loader' },
         ],
       },
+      {
+        test: /\.svg$/,
+        issuer: /\.(js|jsx)$/,
+        use: ['@svgr/webpack'],
+      },
     ],
   },
   output: {

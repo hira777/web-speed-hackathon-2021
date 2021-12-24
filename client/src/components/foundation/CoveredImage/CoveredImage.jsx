@@ -1,9 +1,5 @@
 import classNames from 'classnames';
-import sizeOf from 'image-size';
 import React from 'react';
-
-import { useFetch } from '../../../hooks/use_fetch';
-import { fetchBinary } from '../../../utils/fetchers';
 
 /**
  * @typedef {object} Props
@@ -16,16 +12,7 @@ import { fetchBinary } from '../../../utils/fetchers';
  * @type {React.VFC<Props>}
  */
 const CoveredImage = ({ alt, src }) => {
-  const { data, isLoading } = useFetch(src, fetchBinary);
-
-  const imageSize = React.useMemo(() => {
-    return data !== null ? sizeOf(Buffer.from(data)) : null;
-  }, [data]);
-
-  const blobUrl = React.useMemo(() => {
-    return data !== null ? URL.createObjectURL(new Blob([data])) : null;
-  }, [data]);
-
+  const [imageSize, setImageSize] = React.useState(null);
   const [containerSize, setContainerSize] = React.useState({ height: 0, width: 0 });
   /** @type {React.RefCallback<HTMLDivElement>} */
   const callbackRef = React.useCallback((el) => {
@@ -35,7 +22,15 @@ const CoveredImage = ({ alt, src }) => {
     });
   }, []);
 
-  if (isLoading || data === null || blobUrl === null) {
+  React.useEffect(() => {
+    const image = new Image();
+    image.onload = () => {
+      setImageSize({ width: image.width, height: image.height });
+    };
+    image.src = src;
+  }, [src, setImageSize]);
+
+  if (!imageSize) {
     return null;
   }
 
@@ -50,7 +45,7 @@ const CoveredImage = ({ alt, src }) => {
           'w-auto h-full': containerRatio > imageRatio,
           'w-full h-auto': containerRatio <= imageRatio,
         })}
-        src={blobUrl}
+        src={src}
       />
     </div>
   );

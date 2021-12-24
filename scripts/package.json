@@ -1,0 +1,11 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "sharp": "^0.29.3"
+  },
+  "scripts": {
+    "convert:image": "node jpg2avif"
+  }
+}

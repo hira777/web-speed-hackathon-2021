@@ -5,10 +5,13 @@
   "dependencies": {
     "@ffmpeg/core": "^0.10.0",
     "@ffmpeg/ffmpeg": "^0.10.1",
-    "sharp": "^0.29.3"
+    "lodash": "^4.17.21",
+    "sharp": "^0.29.3",
+    "web-audio-api": "^0.2.2"
   },
   "scripts": {
     "convert:image": "node jpg2avif",
-    "convert:movie": "node --experimental-wasm-threads gif2webm"
+    "convert:movie": "node --experimental-wasm-threads gif2webm",
+    "convert:sound": "node mp32svg"
   }
 }

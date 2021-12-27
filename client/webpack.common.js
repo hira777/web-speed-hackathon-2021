@@ -26,6 +26,7 @@ const config = {
       },
       {
         test: /\.css$/i,
+        exclude: /webfont.css$/i,
         use: [
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader', options: { url: false } },
@@ -33,9 +34,22 @@ const config = {
         ],
       },
       {
+        test: /webfont.css$/i,
+        use: [{ loader: 'postcss-loader' }],
+        type: 'asset/resource',
+        generator: {
+          filename: 'styles/[name][ext]',
+          publicPath: '/',
+        },
+      },
+      {
         test: /\.svg$/,
         issuer: /\.(js|jsx)$/,
         use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
       },
     ],
   },

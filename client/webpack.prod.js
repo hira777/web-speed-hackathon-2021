@@ -6,6 +6,13 @@ const commonConfig = require('./webpack.common.js');
 
 module.exports = merge(commonConfig, {
   mode: 'production',
+  resolve: {
+    alias: {
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
+      'react/jsx-runtime': 'preact/jsx-runtime',
+    },
+  },
   optimization: {
     minimizer: [
       new TerserPlugin({

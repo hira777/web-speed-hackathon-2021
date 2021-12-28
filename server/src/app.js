@@ -5,6 +5,7 @@ import compression from 'compression';
 
 import { apiRouter } from './routes/api';
 import { staticRouter } from './routes/static';
+import { compressionRouter } from './routes/compression';
 
 const app = Express();
 
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.raw({ limit: '10mb' }));
 
 app.use('/api/v1', apiRouter);
+app.use(compressionRouter);
 app.use(staticRouter);
 
 export { app };

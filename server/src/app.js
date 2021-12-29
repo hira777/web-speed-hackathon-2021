@@ -27,5 +27,12 @@ app.use(bodyParser.raw({ limit: '10mb' }));
 app.use('/api/v1', apiRouter);
 app.use(compressionRouter);
 app.use(staticRouter);
+app.use((_, res, next) => {
+  res.header({
+    'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+    Connection: 'close',
+  });
+  return next();
+});
 
 export { app };
